@@ -182,8 +182,8 @@ const MOCK_DATA = {
                 { title: 'Retreat', where: 'Sky Store', type: 'Film' }
             ],
             talent: 'Cillian Murphy',
-            suggestedPost: 'Can\'t get enough of Cillian Murphy after Peaky Blinders? From the intensity of Oppenheimer to the terror of 28 Days Later — we\'ve got you covered. Stream now on Sky Cinema.',
-            relevanceScore: 0.96,
+            strategicRecommendation: 'Leverage Cillian Murphy moment — cross-promote Sky Cinema catalogue (Oppenheimer, 28 Days Later, Dunkirk) while Peaky Blinders movie drives peak interest',
+            relevanceScore: 'high',
             timing: 'Immediate — trending now'
         },
         {
@@ -202,8 +202,8 @@ const MOCK_DATA = {
                 { title: 'The Day of the Jackal (1973)', where: 'Sky Cinema', type: 'Film' }
             ],
             talent: 'Eddie Redmayne',
-            suggestedPost: 'The people have spoken — #DayOfTheJackal is the series everyone\'s talking about. Catch up on the full series on Sky Atlantic before it\'s too late.',
-            relevanceScore: 0.92,
+            strategicRecommendation: 'Capitalise on #DayOfTheJackal fan campaign momentum — spotlight Sky Atlantic as the home of the series, tease S2 speculation',
+            relevanceScore: 'high',
             timing: 'This week — high engagement window'
         },
         {
@@ -223,8 +223,8 @@ const MOCK_DATA = {
                 { title: 'Peaky Blinders S1-6', where: 'Sky Box Sets', type: 'Series' }
             ],
             talent: 'Cillian Murphy',
-            suggestedPost: 'The 28 Days Later sequel is officially happening and Cillian Murphy is BACK. Rewatch the original on Sky Store and get ready for the apocalypse — again.',
-            relevanceScore: 0.91,
+            strategicRecommendation: 'Ride 28 Days Later sequel hype — position Sky Store as the place to rewatch the original, tie back to Murphy\'s Sky catalogue',
+            relevanceScore: 'high',
             timing: 'This week — trailer momentum'
         },
         {
@@ -243,8 +243,8 @@ const MOCK_DATA = {
                 { title: 'The Midwich Cuckoos', where: 'Sky Max', type: 'Series' }
             ],
             talent: 'Various',
-            suggestedPost: 'If Black Mirror\'s dark twists have you hooked, Sweetpea will absolutely destroy you. A different kind of darkness — now streaming on Sky.',
-            relevanceScore: 0.78,
+            strategicRecommendation: 'Bridge Black Mirror dark-thriller audience to Sweetpea — genre-match positioning for Sky Atlantic originals',
+            relevanceScore: 'medium',
             timing: 'Within 3 days'
         },
         {
@@ -264,8 +264,8 @@ const MOCK_DATA = {
                 { title: 'Slow Horses', where: 'Sky Atlantic', type: 'Series' }
             ],
             talent: 'Cate Blanchett, Michael Fassbender',
-            suggestedPost: 'Getting ready for Black Bag? Revisit Cate Blanchett at her finest in Tár — the role that reminded us why she\'s untouchable. On Sky Cinema now.',
-            relevanceScore: 0.74,
+            strategicRecommendation: 'Pre-release Black Bag buzz — spotlight Blanchett/Fassbender catalogue on Sky Cinema (Tár, The Killer, Slow Horses)',
+            relevanceScore: 'medium',
             timing: 'Week of 10 March — pre-release buzz'
         },
         {
@@ -285,8 +285,8 @@ const MOCK_DATA = {
                 { title: 'Gangs of London', where: 'Sky Atlantic', type: 'Series' }
             ],
             talent: 'Robert De Niro',
-            suggestedPost: 'Before Alto Knights hits cinemas, revisit De Niro\'s greatest mob performances. From Goodfellas to The Irishman — all on Sky Cinema.',
-            relevanceScore: 0.72,
+            strategicRecommendation: 'Pre-release Alto Knights anticipation — curate De Niro mob collection on Sky Cinema (Goodfellas, The Irishman)',
+            relevanceScore: 'medium',
             timing: 'Week of 17 March'
         },
         {
@@ -306,8 +306,8 @@ const MOCK_DATA = {
                 { title: 'Anatomy of a Fall', where: 'Sky Cinema', type: 'Film' }
             ],
             talent: 'Various nominees',
-            suggestedPost: 'The Oscar nominations are in. How many have you seen? Catch up with our curated collection of nominated films — all on Sky Cinema.',
-            relevanceScore: 0.68,
+            strategicRecommendation: 'Oscars night content play — curate Sky Cinema collection of nominated films, drive tune-in around ceremony',
+            relevanceScore: 'low',
             timing: 'Oscars night 2 March'
         },
         {
@@ -326,8 +326,8 @@ const MOCK_DATA = {
                 { title: 'Killing Eve', where: 'Sky Box Sets', type: 'Series' }
             ],
             talent: 'Ella Purnell',
-            suggestedPost: 'Sweetpea fans — we see you. If you loved the twisted brilliance of Series 1, revisit every jaw-dropping moment on Sky. And keep your eyes peeled... 🌸',
-            relevanceScore: 0.85,
+            strategicRecommendation: 'Amplify organic Sweetpea fan buzz — community engagement strategy while S2 speculation builds',
+            relevanceScore: 'medium',
             timing: 'This week — riding the buzz'
         }
     ],
@@ -350,11 +350,11 @@ const MOCK_DATA = {
 
     // ─── AI Briefing Content ───
     aiBriefing: {
-        overview: 'This week presents exceptional opportunities for Sky\'s social team. The release of Peaky Blinders: The Movie on Netflix has created a massive Cillian Murphy moment across all platforms — with 124M TikTok views and 2.4M Wikipedia page views. This directly benefits Sky\'s catalogue featuring Oppenheimer, 28 Days Later, and Dunkirk. Simultaneously, Sky originals The Day of the Jackal and Sweetpea are organically trending on TikTok with fans actively campaigning for more content, creating a rare dual opportunity of reactive (Netflix trends) and proactive (Sky originals buzz) content.',
+        overview: 'Big week. Peaky Blinders: The Movie has landed on Netflix and Cillian Murphy is everywhere — 124M TikTok views, 2.4M Wikipedia hits. Great news for us: Oppenheimer, 28 Days Later and Dunkirk are all on Sky. Meanwhile, fans are organically buzzing about Day of the Jackal and Sweetpea on TikTok, campaigning for more. Two things happening at once — we can ride the Murphy wave and champion our own originals.',
         insights: [
-            { title: 'Cillian Murphy Moment', text: 'Three separate Murphy-related trends surfacing simultaneously — Peaky Blinders movie, 28 Days Later sequel, and Oppenheimer re-watches. This is the strongest single-talent opportunity this quarter.' },
-            { title: 'Sky Originals Organic Buzz', text: 'Day of the Jackal and Sweetpea are trending organically on TikTok without paid promotion — fan campaigns for new series suggest strong audience loyalty worth amplifying.' },
-            { title: 'Awards Season Window', text: 'Oscars ceremony on 2 March creates a two-week window for Sky Cinema to spotlight nominated films and talent connections across social channels.' }
+            { title: 'The Murphy Moment', text: 'Three Murphy trends at once — Peaky Blinders movie, 28 Days Later sequel and Oppenheimer re-watches. The biggest single-talent opportunity we\'ve seen this quarter.' },
+            { title: 'Fans Are Doing the Work', text: 'Day of the Jackal and Sweetpea are trending on TikTok without any paid push — fans are campaigning for new series off their own back. Worth amplifying.' },
+            { title: 'Oscars Are Coming', text: 'Ceremony on 2 March. A two-week window to spotlight nominated films on Sky Cinema and make the most of the awards conversation.' }
         ]
     },
 
@@ -372,8 +372,8 @@ const MOCK_DATA = {
             'Dunkirk (Sky Cinema)',
             'Retreat (Sky Store)'
         ],
-        suggestion: 'Can\'t get enough of Tommy Shelby? Cillian Murphy has been delivering masterclass performances for years. From the Oscar-winning Oppenheimer to the genre-defining 28 Days Later — catch them all on Sky.',
-        relevance: 96
+        strategicRecommendation: 'Leverage Cillian Murphy moment — cross-promote Sky Cinema catalogue (Oppenheimer, 28 Days Later, Dunkirk) while Peaky Blinders movie drives peak interest',
+        relevance: 'high'
     },
 
     // ─── Top Movers ───

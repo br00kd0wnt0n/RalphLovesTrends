@@ -25,7 +25,7 @@ export const ApifyTikTokHashtagSource: TrendSource = {
         'https://api.apify.com/v2/acts/lexis-solutions~tiktok-trending-hashtags-scraper/runs',
         {
           input: {
-            country: 'US',
+            country: 'GB',
             maxHashtags: 50,
             sortBy: 'trending',
             includeAnalytics: true
@@ -148,7 +148,7 @@ export const ApifyTikTokHashtagSource: TrendSource = {
             popularity: popularity,
             category: category,
             platform: 'TikTok',
-            region: 'United States',
+            region: 'United Kingdom',
             timestamp: new Date(),
             metadata: {
               source_url: 'https://api.apify.com/v2/acts/lexis-solutions~tiktok-trending-hashtags-scraper',

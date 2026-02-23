@@ -107,8 +107,8 @@ function renderSpotlight() {
             </div>
         </div>
         <div class="spotlight-suggestion">
-            <div class="spotlight-suggestion-label"><i class="fas fa-pen-fancy"></i> Suggested Post Copy</div>
-            <div class="spotlight-suggestion-text">"${s.suggestion}"</div>
+            <div class="spotlight-suggestion-label"><i class="fas fa-lightbulb"></i> Strategic Recommendation</div>
+            <div class="spotlight-suggestion-text">${s.strategicRecommendation}</div>
         </div>
     `;
 }
@@ -217,16 +217,11 @@ function renderStreamingCharts(platformFilter, typeFilter) {
         lists.push({ title: 'Sky', subtitle: 'Opportunity Connections', colour: '#0072c9', icon: 'S', data: skyItems });
     }
 
-    if (platformFilter === 'apple') {
-        // placeholder
-        lists.push({ title: 'Apple TV+', subtitle: 'Top UK', colour: '#1d1d1f', icon: 'A', data: [] });
-    }
-
     lists.forEach(list => {
         html += renderChartList(list);
     });
 
-    grid.innerHTML = html || '<p style="padding:40px;text-align:center;color:var(--text-muted);">No results found.</p>';
+    grid.innerHTML = html || '<p style="padding:40px;text-align:center;color:var(--text-muted);">Nothing matching that — try broadening your search.</p>';
 }
 
 function filterBySearch(data, search) {
@@ -242,7 +237,7 @@ function renderChartList(list) {
     let itemsHtml = '';
 
     if (items.length === 0) {
-        itemsHtml = '<div style="padding:24px;text-align:center;color:var(--text-muted);font-size:0.85rem;">No data available for this period.</div>';
+        itemsHtml = '<div style="padding:24px;text-align:center;color:var(--text-muted);font-size:0.85rem;">Nothing here yet — data coming soon.</div>';
     } else if (list.isWiki) {
         itemsHtml = items.map(item => `
             <div class="chart-item">
@@ -339,16 +334,13 @@ function renderOpportunities(urgencyFilter, typeFilter) {
                     </div>
                 </div>
                 <div class="opportunity-post">
-                    <div class="opportunity-post-label"><i class="fas fa-pen-fancy"></i> Suggested Post</div>
-                    <div class="opportunity-post-text">"${o.suggestedPost}"</div>
+                    <div class="opportunity-post-label"><i class="fas fa-lightbulb"></i> Strategic Recommendation</div>
+                    <div class="opportunity-post-text">${o.strategicRecommendation}</div>
                 </div>
             </div>
             <div class="opportunity-card-footer">
-                <div class="relevance-bar">
-                    Relevance: ${Math.round(o.relevanceScore * 100)}%
-                    <div class="relevance-bar-track">
-                        <div class="relevance-bar-fill" style="width:${o.relevanceScore * 100}%"></div>
-                    </div>
+                <div>
+                    <span style="font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;padding:3px 8px;border-radius:20px;background:${{high:'var(--danger-light)',medium:'var(--warning-light)',low:'var(--bg-tertiary)'}[o.relevanceScore]};color:${{high:'var(--danger)',medium:'var(--warning)',low:'var(--text-muted)'}[o.relevanceScore]};">${o.relevanceScore} relevance</span>
                 </div>
                 <span><i class="far fa-clock"></i> ${o.timing}</span>
             </div>
@@ -721,7 +713,7 @@ const API_SOURCES = [
         envKey: 'ANTHROPIC_API_KEY',
         cost: 'Usage-based',
         docs: 'docs.anthropic.com',
-        feeds: ['AI Briefing', 'Sky Opportunities', 'Suggested Posts'],
+        feeds: ['AI Briefing', 'Sky Opportunities', 'Strategic Recommendations'],
         frequency: 'On demand',
         status: 'not-configured'
     }
