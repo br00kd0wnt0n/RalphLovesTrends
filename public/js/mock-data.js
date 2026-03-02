@@ -113,7 +113,7 @@ const MOCK_DATA = {
         'The Day of the Jackal S1', 'The Day of the Jackal (1973)',
         'Sweetpea', 'The Midwich Cuckoos', 'Tár', 'The Killer',
         'Slow Horses', 'Goodfellas', 'The Irishman', 'Gangs of London',
-        'Killing Eve', 'The Zone of Interest', 'Anatomy of a Fall',
+        'The Zone of Interest', 'Anatomy of a Fall',
         'Peaky Blinders S1-6', 'Mr Bigstuff', 'War'
     ],
 
@@ -163,7 +163,7 @@ const MOCK_DATA = {
     redditCalendar: [
         { date: '1 Mar', event: 'St David\'s Day', category: 'Cultural', relevance: 'Welsh content opportunities', icon: '🏴' },
         { date: '15 Mar', event: 'Oscars Ceremony', category: 'Awards', relevance: 'Winner tie-ins to Sky catalogue', icon: '🏆' },
-        { date: '6 Mar', event: 'World Book Day', category: 'Cultural', relevance: 'Book-to-screen adaptations on Sky', icon: '📚' },
+        { date: '5 Mar', event: 'World Book Day', category: 'Cultural', relevance: 'Book-to-screen adaptations on Sky', icon: '📚' },
         { date: '8 Mar', event: 'International Women\'s Day', category: 'Cultural', relevance: 'Female-led Sky originals spotlight', icon: '✊' },
         { date: '14–16 Mar', event: 'Six Nations Super Saturday', category: 'Sport', relevance: 'Rugby crossover content', icon: '🏉' },
         { date: '17 Mar', event: 'St Patrick\'s Day', category: 'Cultural', relevance: 'Irish talent on Sky — Murphy, Gleeson', icon: '☘️' },
@@ -335,8 +335,7 @@ const MOCK_DATA = {
             },
             skyTitles: [
                 { title: 'Goodfellas', where: 'Sky Cinema', type: 'Film' },
-                { title: 'The Irishman', where: 'Sky Cinema', type: 'Film' },
-                { title: 'Gangs of London', where: 'Sky Atlantic', type: 'Series' }
+                { title: 'The Irishman', where: 'Sky Cinema', type: 'Film' }
             ],
             talent: 'Robert De Niro',
             strategicRecommendation: 'Pre-release Alto Knights anticipation — curate De Niro mob collection on Sky Cinema (Goodfellas / The Irishman)',
@@ -376,8 +375,7 @@ const MOCK_DATA = {
                 detail: 'Star teases possible return — fans riding the buzz'
             },
             skyTitles: [
-                { title: 'Sweetpea S1', where: 'Sky Atlantic', type: 'Series' },
-                { title: 'Killing Eve', where: 'Sky Box Sets', type: 'Series' }
+                { title: 'Sweetpea S1', where: 'Sky Atlantic', type: 'Series' }
             ],
             talent: 'Ella Purnell',
             strategicRecommendation: 'Amplify organic Sweetpea fan buzz — community engagement strategy while S2 speculation builds',
