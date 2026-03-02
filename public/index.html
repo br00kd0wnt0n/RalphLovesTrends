@@ -185,9 +185,6 @@
                 <button class="tab" data-platform="netflix">
                     <span class="platform-dot dot-netflix"></span> Netflix
                 </button>
-                <button class="tab" data-platform="wiki">
-                    <span class="platform-dot dot-wiki"></span> WikiViews
-                </button>
                 <button class="tab" data-platform="amazon">
                     <span class="platform-dot dot-amazon"></span> Prime Video
                 </button>
@@ -256,6 +253,42 @@
             <div class="social-header">
                 <h1>Social &amp; Culture</h1>
                 <p>What fans are watching, sharing and obsessing over right now.</p>
+            </div>
+
+            <!-- WikiViews -->
+            <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:12px;color:var(--text-primary);"><i class="fab fa-wikipedia-w" style="margin-right:6px;"></i> WikiViews — Most Viewed Pages</h2>
+            <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:12px;">Wikipedia page views as a proxy for cultural attention. What people are actively researching right now.</p>
+            <div class="grid-3" style="margin-bottom:24px;">
+                <div class="card">
+                    <div class="card-header" style="background:#636e72;border-bottom:none;">
+                        <div class="card-header-left">
+                            <i class="fas fa-film" style="color:#fff"></i>
+                            <h2 style="color:#fff">Film</h2>
+                        </div>
+                        <span class="card-header-badge">Past Week</span>
+                    </div>
+                    <div class="card-body" id="wikiFilmWidget"><!-- JS --></div>
+                </div>
+                <div class="card">
+                    <div class="card-header" style="background:#636e72;border-bottom:none;">
+                        <div class="card-header-left">
+                            <i class="fas fa-tv" style="color:#fff"></i>
+                            <h2 style="color:#fff">TV</h2>
+                        </div>
+                        <span class="card-header-badge">Past Week</span>
+                    </div>
+                    <div class="card-body" id="wikiTVWidget"><!-- JS --></div>
+                </div>
+                <div class="card">
+                    <div class="card-header" style="background:#636e72;border-bottom:none;">
+                        <div class="card-header-left">
+                            <i class="fas fa-user-group" style="color:#fff"></i>
+                            <h2 style="color:#fff">People</h2>
+                        </div>
+                        <span class="card-header-badge">Past Week</span>
+                    </div>
+                    <div class="card-body" id="wikiPeopleWidget"><!-- JS --></div>
+                </div>
             </div>
 
             <!-- TikTok UK Hashtags -->

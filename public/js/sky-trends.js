@@ -120,10 +120,10 @@ function renderDashboardCharts() {
         new Chart(platformCtx.getContext('2d'), {
             type: 'doughnut',
             data: {
-                labels: ['Netflix TV', 'Netflix Film', 'Prime TV', 'Prime Film', 'WikiViews Film', 'WikiViews TV', 'WikiViews People'],
+                labels: ['Netflix TV', 'Netflix Film', 'Prime TV', 'Prime Film'],
                 datasets: [{
-                    data: [10, 10, 10, 10, 10, 10, 10],
-                    backgroundColor: ['#e50914', '#b20710', '#00a8e1', '#0088cc', '#636e72', '#7f8c8d', '#95a5a6'],
+                    data: [10, 10, 10, 10],
+                    backgroundColor: ['#e50914', '#b20710', '#00a8e1', '#0088cc'],
                     borderWidth: 0
                 }]
             },
@@ -212,19 +212,6 @@ function renderStreamingCharts(platformFilter, typeFilter) {
         }
     }
 
-    if (platformFilter === 'all' || platformFilter === 'wiki') {
-        // WikiViews — split into Film, TV, People
-        if (typeFilter === 'all' || typeFilter === 'films') {
-            lists.push({ title: 'WikiViews', subtitle: 'Most Viewed Film Pages', colour: '#636e72', icon: 'W', data: filterBySearch(MOCK_DATA.wikiViewsFilm, search), isWiki: true });
-        }
-        if (typeFilter === 'all' || typeFilter === 'series') {
-            lists.push({ title: 'WikiViews', subtitle: 'Most Viewed TV Pages', colour: '#636e72', icon: 'W', data: filterBySearch(MOCK_DATA.wikiViewsTV, search), isWiki: true });
-        }
-        if (typeFilter === 'all') {
-            lists.push({ title: 'WikiViews', subtitle: 'Most Viewed People Pages', colour: '#636e72', icon: 'W', data: filterBySearch(MOCK_DATA.wikiViewsPeople, search), isWiki: true });
-        }
-    }
-
     if (platformFilter === 'sky') {
         // Show Sky-relevant items
         const skyItems = MOCK_DATA.opportunities.map((o, i) => ({
@@ -261,26 +248,6 @@ function renderChartList(list) {
 
     if (items.length === 0) {
         itemsHtml = '<div style="padding:24px;text-align:center;color:var(--text-muted);font-size:0.85rem;">Nothing here yet — data coming soon.</div>';
-    } else if (list.isWiki) {
-        itemsHtml = items.map(item => {
-            const onSky = isOnSky(item.title);
-            const metaParts = [item.category];
-            if (item.genre) metaParts.push(item.genre);
-            if (item.distributor) metaParts.push(item.distributor);
-            return `
-                <div class="chart-item">
-                    <div class="chart-position ${item.rank <= 3 ? 'top3' : ''}">${item.rank}</div>
-                    <div class="chart-title-info">
-                        <div class="chart-title-name">${item.title}</div>
-                        <div class="chart-title-meta">${metaParts.join(' · ')}</div>
-                    </div>
-                    ${onSky ? '<span class="chart-sky-badge"><i class="fas fa-bolt"></i> On Sky</span>' : ''}
-                    <div class="chart-days">
-                        <strong>${item.views}</strong> views
-                    </div>
-                </div>
-            `;
-        }).join('');
     } else {
         itemsHtml = items.map(item => {
             const movementHtml = getMovementHtml(item);
@@ -471,11 +438,43 @@ function applyOpportunityFilters() {
 
 /* ─────────── Social & Culture Section ─────────── */
 function renderSocialSection() {
+    renderWikiViews();
     renderTikTokUK();
     renderTikTokNews();
     renderRamdamTikTok();
     renderRamdamInstagram();
     renderSocial('all');
+}
+
+function renderWikiViews() {
+    const sections = [
+        { id: 'wikiFilmWidget', data: MOCK_DATA.wikiViewsFilm, subtitle: 'Film' },
+        { id: 'wikiTVWidget', data: MOCK_DATA.wikiViewsTV, subtitle: 'TV' },
+        { id: 'wikiPeopleWidget', data: MOCK_DATA.wikiViewsPeople, subtitle: 'People' }
+    ];
+    sections.forEach(sec => {
+        const container = document.getElementById(sec.id);
+        if (!container || !sec.data) return;
+        container.innerHTML = sec.data.map(item => {
+            const onSky = isOnSky(item.title);
+            const metaParts = [item.category];
+            if (item.genre) metaParts.push(item.genre);
+            if (item.distributor) metaParts.push(item.distributor);
+            return `
+                <div class="chart-item">
+                    <div class="chart-position ${item.rank <= 3 ? 'top3' : ''}">${item.rank}</div>
+                    <div class="chart-title-info">
+                        <div class="chart-title-name">${item.title}</div>
+                        <div class="chart-title-meta">${metaParts.join(' · ')}</div>
+                    </div>
+                    ${onSky ? '<span class="chart-sky-badge"><i class="fas fa-bolt"></i> On Sky</span>' : ''}
+                    <div class="chart-days">
+                        <strong>${item.views}</strong> views
+                    </div>
+                </div>
+            `;
+        }).join('');
+    });
 }
 
 function renderTikTokUK() {
