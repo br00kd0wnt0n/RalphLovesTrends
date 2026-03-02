@@ -120,10 +120,10 @@ function renderDashboardCharts() {
         new Chart(platformCtx.getContext('2d'), {
             type: 'doughnut',
             data: {
-                labels: ['Netflix TV', 'Netflix Film', 'Amazon Prime', 'TikTok UK', 'WikiViews'],
+                labels: ['Netflix TV', 'Netflix Film', 'Prime TV', 'Prime Film', 'WikiViews Film', 'WikiViews TV', 'WikiViews People'],
                 datasets: [{
-                    data: [10, 10, 10, 10, 10],
-                    backgroundColor: ['#e50914', '#b20710', '#00a8e1', '#ff0050', '#636e72'],
+                    data: [10, 10, 10, 10, 10, 10, 10],
+                    backgroundColor: ['#e50914', '#b20710', '#00a8e1', '#0088cc', '#636e72', '#7f8c8d', '#95a5a6'],
                     borderWidth: 0
                 }]
             },
@@ -142,7 +142,7 @@ function renderDashboardCharts() {
     const genreCtx = document.getElementById('genreBarChart');
     if (genreCtx) {
         const genres = {};
-        [...MOCK_DATA.netflixTV, ...MOCK_DATA.netflixFilm, ...MOCK_DATA.amazonPrime].forEach(item => {
+        [...MOCK_DATA.netflixTV, ...MOCK_DATA.netflixFilm, ...MOCK_DATA.amazonPrimeTV, ...MOCK_DATA.amazonPrimeFilm].forEach(item => {
             const g = item.genre.split('/')[0].trim();
             genres[g] = (genres[g] || 0) + 1;
         });
@@ -176,6 +176,16 @@ function renderDashboardCharts() {
     }
 }
 
+/* ─────────── Sky Catalogue Matching ─────────── */
+function isOnSky(title) {
+    if (!MOCK_DATA.skyTitles) return false;
+    const normalised = title.toLowerCase().replace(/['']/g, "'");
+    return MOCK_DATA.skyTitles.some(skyTitle => {
+        const skyNorm = skyTitle.toLowerCase().replace(/['']/g, "'");
+        return normalised.includes(skyNorm) || skyNorm.includes(normalised);
+    });
+}
+
 /* ─────────── Streaming Charts ─────────── */
 function renderStreamingCharts(platformFilter, typeFilter) {
     const grid = document.getElementById('chartsGrid');
@@ -194,12 +204,25 @@ function renderStreamingCharts(platformFilter, typeFilter) {
     }
 
     if (platformFilter === 'all' || platformFilter === 'amazon') {
-        lists.push({ title: 'Prime Video', subtitle: 'Top UK', colour: '#00a8e1', icon: 'P', data: filterBySearch(MOCK_DATA.amazonPrime, search) });
+        if (typeFilter === 'all' || typeFilter === 'series') {
+            lists.push({ title: 'Prime Video', subtitle: 'Top Series UK', colour: '#00a8e1', icon: 'P', data: filterBySearch(MOCK_DATA.amazonPrimeTV, search) });
+        }
+        if (typeFilter === 'all' || typeFilter === 'films') {
+            lists.push({ title: 'Prime Video', subtitle: 'Top Films UK', colour: '#00a8e1', icon: 'P', data: filterBySearch(MOCK_DATA.amazonPrimeFilm, search) });
+        }
     }
 
     if (platformFilter === 'all' || platformFilter === 'disney') {
-        // WikiViews as a proxy data source
-        lists.push({ title: 'WikiViews', subtitle: 'Most Viewed Entertainment Pages', colour: '#636e72', icon: 'W', data: filterBySearch(MOCK_DATA.wikiViews, search), isWiki: true });
+        // WikiViews as a proxy data source — now split into Film, TV, People
+        if (typeFilter === 'all' || typeFilter === 'films') {
+            lists.push({ title: 'WikiViews', subtitle: 'Most Viewed Film Pages', colour: '#636e72', icon: 'W', data: filterBySearch(MOCK_DATA.wikiViewsFilm, search), isWiki: true });
+        }
+        if (typeFilter === 'all' || typeFilter === 'series') {
+            lists.push({ title: 'WikiViews', subtitle: 'Most Viewed TV Pages', colour: '#636e72', icon: 'W', data: filterBySearch(MOCK_DATA.wikiViewsTV, search), isWiki: true });
+        }
+        if (typeFilter === 'all') {
+            lists.push({ title: 'WikiViews', subtitle: 'Most Viewed People Pages', colour: '#636e72', icon: 'W', data: filterBySearch(MOCK_DATA.wikiViewsPeople, search), isWiki: true });
+        }
     }
 
     if (platformFilter === 'sky') {
@@ -239,32 +262,42 @@ function renderChartList(list) {
     if (items.length === 0) {
         itemsHtml = '<div style="padding:24px;text-align:center;color:var(--text-muted);font-size:0.85rem;">Nothing here yet — data coming soon.</div>';
     } else if (list.isWiki) {
-        itemsHtml = items.map(item => `
-            <div class="chart-item">
-                <div class="chart-position ${item.rank <= 3 ? 'top3' : ''}">${item.rank}</div>
-                <div class="chart-title-info">
-                    <div class="chart-title-name">${item.title}</div>
-                    <div class="chart-title-meta">${item.category}</div>
+        itemsHtml = items.map(item => {
+            const onSky = isOnSky(item.title);
+            const metaParts = [item.category];
+            if (item.genre) metaParts.push(item.genre);
+            if (item.distributor) metaParts.push(item.distributor);
+            return `
+                <div class="chart-item">
+                    <div class="chart-position ${item.rank <= 3 ? 'top3' : ''}">${item.rank}</div>
+                    <div class="chart-title-info">
+                        <div class="chart-title-name">${item.title}</div>
+                        <div class="chart-title-meta">${metaParts.join(' · ')}</div>
+                    </div>
+                    ${onSky ? '<span class="chart-sky-badge"><i class="fas fa-bolt"></i> On Sky</span>' : ''}
+                    <div class="chart-days">
+                        <strong>${item.views}</strong> views
+                    </div>
                 </div>
-                <div class="chart-days">
-                    <strong>${item.views}</strong> views
-                    <br><span style="color:var(--success);font-weight:600;font-size:0.7rem;">${item.change}</span>
-                </div>
-            </div>
-        `).join('');
+            `;
+        }).join('');
     } else {
         itemsHtml = items.map(item => {
             const movementHtml = getMovementHtml(item);
+            const onSky = item.skyLink || isOnSky(item.title);
+            const posterHtml = item.posterUrl
+                ? `<img src="${item.posterUrl}" alt="${item.title}" style="width:100%;height:100%;object-fit:cover;">`
+                : (item.emoji || '');
             return `
                 <div class="chart-item">
                     <div class="chart-position ${item.rank <= 3 ? 'top3' : ''}">${item.rank}</div>
                     <div class="chart-movement ${item.movement}">${movementHtml}</div>
-                    <div class="chart-poster">${item.emoji || ''}</div>
+                    <div class="chart-poster">${posterHtml}</div>
                     <div class="chart-title-info">
                         <div class="chart-title-name">${item.title}</div>
-                        <div class="chart-title-meta">${item.genre}${item.type ? ' · ' + item.type : ''}</div>
+                        <div class="chart-title-meta">${item.genre}${item.type ? ' · ' + item.type : ''}${item.talent ? ' · ' + item.talent : ''}</div>
                     </div>
-                    ${item.skyLink ? '<span class="chart-sky-badge"><i class="fas fa-bolt"></i> Sky Link</span>' : ''}
+                    ${onSky ? '<span class="chart-sky-badge"><i class="fas fa-bolt"></i> On Sky</span>' : ''}
                     <div class="chart-days">
                         <strong>${item.daysInChart}</strong> days
                         <br>Peak: #${item.peakPosition}
@@ -449,9 +482,9 @@ function renderTikTokUK() {
     const container = document.getElementById('tiktokUKWidget');
     if (!container) return;
     container.innerHTML = MOCK_DATA.tiktokUK.map(item => {
-        const trendIcon = item.trend === 'up' ? '<span style="color:var(--success)">&#9650;</span>' :
+        const trendIcon = item.trend === 'up' ? `<span style="color:var(--success)">&#9650;${item.change || ''}</span>` :
                           item.trend === 'new' ? '<span style="color:var(--sky-blue);font-weight:700;font-size:0.7rem;">NEW</span>' :
-                          item.trend === 'down' ? '<span style="color:var(--danger)">&#9660;</span>' :
+                          item.trend === 'down' ? `<span style="color:var(--danger)">&#9660;${item.change || ''}</span>` :
                           '<span style="color:var(--text-muted)">—</span>';
         return `
             <div class="chart-item">

@@ -11,98 +11,152 @@ const MOCK_DATA = {
 
     // ─── Netflix TV Trending UK (Past Week) ───
     netflixTV: [
-        { rank: 1, title: 'Adolescence', genre: 'Drama', movement: 'same', daysInChart: 14, peakPosition: 1, emoji: '🎭' },
-        { rank: 2, title: 'Running Point', genre: 'Comedy', movement: 'up', change: 3, daysInChart: 7, peakPosition: 2, emoji: '😂' },
-        { rank: 3, title: 'Black Mirror S7', genre: 'Sci-Fi', movement: 'new', daysInChart: 3, peakPosition: 3, emoji: '🪞' },
-        { rank: 4, title: 'Zero Day', genre: 'Thriller', movement: 'down', change: 2, daysInChart: 21, peakPosition: 1, emoji: '🕵️' },
-        { rank: 5, title: 'Apple Cider Vinegar', genre: 'True Crime', movement: 'up', change: 1, daysInChart: 10, peakPosition: 4, emoji: '🍎' },
-        { rank: 6, title: 'Love Is Blind UK S2', genre: 'Reality', movement: 'new', daysInChart: 2, peakPosition: 6, emoji: '💕' },
-        { rank: 7, title: 'The Recruit S2', genre: 'Action', movement: 'down', change: 3, daysInChart: 28, peakPosition: 2, emoji: '🔫' },
-        { rank: 8, title: 'Squid Game S2', genre: 'Drama', movement: 'down', change: 5, daysInChart: 56, peakPosition: 1, emoji: '🦑' },
-        { rank: 9, title: 'Mo S2', genre: 'Comedy', movement: 'up', change: 2, daysInChart: 5, peakPosition: 8, emoji: '😄' },
-        { rank: 10, title: 'The Night Agent S2', genre: 'Thriller', movement: 'same', daysInChart: 35, peakPosition: 1, emoji: '🌙' }
+        { rank: 1, title: 'Being Gordon Ramsay', genre: 'Documentary', type: 'Food', movement: 'same', daysInChart: 5, peakPosition: 1, emoji: '👨‍🍳', talent: 'Gordon Ramsay', description: 'Follow Gordon Ramsay over 9 months in the lead up to his biggest restaurant venture to date.' },
+        { rank: 2, title: 'The Night Agent', genre: 'Action', type: 'Spies', movement: 'same', daysInChart: 37, peakPosition: 1, emoji: '🌙', talent: 'Gabriel Basso, Luciane Buchanan', description: 'An FBI agent and a cybersecurity expert must unravel an ever-growing web of political conspiracies.' },
+        { rank: 3, title: 'Reality Check: Inside America\'s Next Top Model', genre: 'Documentary', type: 'Fashion', movement: 'same', daysInChart: 7, peakPosition: 3, emoji: '📸', description: 'The definitive, must-watch documentary about ANTM.' },
+        { rank: 4, title: 'How to Get to Heaven from Belfast', genre: 'Comedy', type: 'Situation', movement: 'up', change: 1, daysInChart: 11, peakPosition: 4, emoji: '😂', talent: 'Roisin Gallagher, Saoirse-Monica Jackson', description: 'Three lifelong pals embark on a chaotic quest to solve the mystery of their old friend\'s suspicious death.' },
+        { rank: 5, title: 'Bridgerton', genre: 'Romance', type: 'Kings and Queens', movement: 'up', change: 1, daysInChart: 87, peakPosition: 1, emoji: '👑', talent: 'Nicola Coughlan, Jonathan Bailey', description: 'Wealth, lust, and betrayal set in the backdrop of Regency era England.' },
+        { rank: 6, title: 'The Middle', genre: 'Comedy', type: 'Sitcom', movement: 'up', change: 1, daysInChart: 5, peakPosition: 6, emoji: '👨‍👩‍👧‍👦', talent: 'Patricia Heaton, Neil Flynn', description: 'The daily mishaps of a married woman and her semi-dysfunctional family.' },
+        { rank: 7, title: 'Jeffrey Epstein: Filthy Rich', genre: 'Documentary', type: 'Crime', movement: 'up', change: 1, daysInChart: 18, peakPosition: 7, emoji: '🔍', description: 'Stories from survivors fuel this docuseries examining how Jeffrey Epstein carried out his abuses.' },
+        { rank: 8, title: 'The Lincoln Lawyer', genre: 'Drama', type: 'Lawyers', movement: 'up', change: 1, daysInChart: 47, peakPosition: 1, emoji: '⚖️', talent: 'Manuel Garcia-Rulfo, Neve Campbell', description: 'Hotshot LA lawyer Mickey Haller restarts his career when he takes on a murder case.' },
+        { rank: 9, title: 'Swiped: The School That Banned Smartphones', genre: 'Documentary', movement: 'new', daysInChart: 1, peakPosition: 9, emoji: '📱', talent: 'Emma Willis, Matt Willis', description: 'A group of Year 8 pupils are challenged to give up their smartphones for 21 days.' },
+        { rank: 10, title: 'WWE SmackDown', genre: 'Sport', type: 'Wrestling', movement: 'down', change: 6, daysInChart: 2, peakPosition: 4, emoji: '💪', description: 'The superstars of World Wrestling Entertainment\'s SmackDown brand collide each Friday.' }
     ],
 
     // ─── Netflix Film Trending UK (Past Week) ───
     netflixFilm: [
-        { rank: 1, title: 'Peaky Blinders: The Movie', genre: 'Crime/Drama', movement: 'new', daysInChart: 4, peakPosition: 1, emoji: '🎩', skyLink: true },
-        { rank: 2, title: 'Carry-On', genre: 'Thriller', movement: 'same', daysInChart: 42, peakPosition: 1, emoji: '✈️' },
-        { rank: 3, title: 'The Accountant 2', genre: 'Action', movement: 'up', change: 1, daysInChart: 14, peakPosition: 2, emoji: '🔢' },
-        { rank: 4, title: 'Prometheus', genre: 'Sci-Fi', movement: 'up', change: 5, daysInChart: 7, peakPosition: 4, emoji: '👽' },
-        { rank: 5, title: 'Back in Action', genre: 'Action/Comedy', movement: 'down', change: 3, daysInChart: 28, peakPosition: 1, emoji: '💥' },
-        { rank: 6, title: 'The Electric State', genre: 'Sci-Fi', movement: 'new', daysInChart: 2, peakPosition: 6, emoji: '🤖' },
-        { rank: 7, title: 'Ad Vitam', genre: 'Thriller', movement: 'up', change: 2, daysInChart: 10, peakPosition: 5, emoji: '⏳' },
-        { rank: 8, title: 'Dog Man', genre: 'Animation', movement: 'new', daysInChart: 1, peakPosition: 8, emoji: '🐕' },
-        { rank: 9, title: 'The Platform 2', genre: 'Horror', movement: 'down', change: 4, daysInChart: 21, peakPosition: 3, emoji: '🏢' },
-        { rank: 10, title: 'Hit Man', genre: 'Comedy/Crime', movement: 'down', change: 2, daysInChart: 35, peakPosition: 6, emoji: '🎯' }
+        { rank: 1, title: 'Abigail', genre: 'Horror', type: 'Vampires', movement: 'new', daysInChart: 1, peakPosition: 1, emoji: '🩸', talent: 'Alisha Weir, Melissa Barrera, Dan Stevens', distributor: 'Universal Pictures', description: 'A group of criminals kidnap a 12-year-old ballerina, only to discover she\'s no normal little girl.' },
+        { rank: 2, title: 'Cellar Door', genre: 'Horror', movement: 'down', change: 1, daysInChart: 6, peakPosition: 1, emoji: '🚪', talent: 'Jordana Brewster, Scott Speedman, Laurence Fishburne', distributor: 'Lionsgate', description: 'A couple find their dream house with one caveat — they can never open the cellar door.' },
+        { rank: 3, title: 'The Addams Family 2', genre: 'Animation', type: 'For Older Kids', movement: 'down', change: 1, daysInChart: 3, peakPosition: 2, emoji: '🖤', talent: 'Oscar Isaac, Charlize Theron', distributor: 'MGM', description: 'The Addams get tangled up in more wacky adventures.' },
+        { rank: 4, title: 'Tarot', genre: 'Horror', type: 'Demons', movement: 'down', change: 1, daysInChart: 6, peakPosition: 3, emoji: '🃏', talent: 'Harriet Slater, Jacob Batalon', distributor: 'Sony Pictures', description: 'When friends violate the sacred rule of Tarot readings, they unleash an unspeakable evil.' },
+        { rank: 5, title: 'Rumble', genre: 'Animation', type: 'For Boys', movement: 'down', change: 1, daysInChart: 3, peakPosition: 4, emoji: '👹', talent: 'Will Arnett, Terry Crews', distributor: 'Paramount Pictures', description: 'A teenager seeks to coach a loveable underdog monster into a champion.' },
+        { rank: 6, title: 'The Addams Family', genre: 'Family', type: 'For Older Kids', movement: 'down', change: 1, daysInChart: 3, peakPosition: 5, emoji: '🖤', talent: 'Oscar Isaac, Charlize Theron', distributor: 'MGM', description: 'The Addams family face-off against a treacherous reality-TV host.' },
+        { rank: 7, title: 'Prometheus', genre: 'Science Fiction', type: 'Alien Invasion', movement: 'down', change: 1, daysInChart: 7, peakPosition: 6, emoji: '👽', talent: 'Noomi Rapace, Michael Fassbender, Charlize Theron, Idris Elba', distributor: '20th Century', description: 'A team of explorers discover a clue to the origins of mankind on Earth.' },
+        { rank: 8, title: 'Bandit', genre: 'Crime', type: 'Prison', movement: 'new', daysInChart: 1, peakPosition: 8, emoji: '🏦', talent: 'Josh Duhamel, Elisha Cuthbert, Mel Gibson', description: 'After escaping prison, a charming criminal goes on to rob a record 59 banks.' },
+        { rank: 9, title: 'KPop Demon Hunters', genre: 'Animation', movement: 'down', change: 1, daysInChart: 224, peakPosition: 1, emoji: '🎤', talent: 'Arden Cho, Daniel Dae Kim, Ken Jeong', description: 'K-pop superstars use their secret powers to protect their fans from supernatural threats.' },
+        { rank: 10, title: 'The Orphans', genre: 'Action', type: 'Action Crime', movement: 'same', daysInChart: 2, peakPosition: 10, emoji: '🔫', talent: 'Alban Lenoir, Dali Benssalah', description: 'Childhood friends must stop a teenager before she crosses a line she can\'t return from.' }
     ],
 
-    // ─── Amazon Prime Video TV & Film UK (Past Week) ───
-    amazonPrime: [
-        { rank: 1, title: 'Reacher S3', type: 'Series', genre: 'Action', movement: 'same', daysInChart: 14, peakPosition: 1, emoji: '💪' },
-        { rank: 2, title: 'The Bondsman', type: 'Series', genre: 'Thriller', movement: 'new', daysInChart: 3, peakPosition: 2, emoji: '⛓️' },
-        { rank: 3, title: 'Beast Games', type: 'Series', genre: 'Reality', movement: 'down', change: 1, daysInChart: 28, peakPosition: 1, emoji: '🏆' },
-        { rank: 4, title: 'Invincible S3', type: 'Series', genre: 'Animation', movement: 'up', change: 2, daysInChart: 7, peakPosition: 3, emoji: '🦸' },
-        { rank: 5, title: 'Red One', type: 'Film', genre: 'Action/Comedy', movement: 'down', change: 3, daysInChart: 42, peakPosition: 1, emoji: '🎅' },
-        { rank: 6, title: 'The Idea of You', type: 'Film', genre: 'Romance', movement: 'same', daysInChart: 56, peakPosition: 2, emoji: '💭' },
-        { rank: 7, title: 'Culpa Mía', type: 'Film', genre: 'Romance', movement: 'up', change: 4, daysInChart: 10, peakPosition: 5, emoji: '💔' },
-        { rank: 8, title: 'Citadel: Diana', type: 'Series', genre: 'Spy/Thriller', movement: 'down', change: 2, daysInChart: 21, peakPosition: 4, emoji: '🕶️' },
-        { rank: 9, title: 'The Lord of the Rings: Rings of Power S2', type: 'Series', genre: 'Fantasy', movement: 'down', change: 6, daysInChart: 70, peakPosition: 1, emoji: '💍' },
-        { rank: 10, title: 'Jackpot!', type: 'Film', genre: 'Comedy', movement: 'new', daysInChart: 2, peakPosition: 10, emoji: '🎰' }
+    // ─── Amazon Prime Video TV UK (Past Week) ───
+    amazonPrimeTV: [
+        { rank: 1, title: 'Memory of a Killer', genre: 'Crime', movement: 'up', change: 7, daysInChart: 20, peakPosition: 1, emoji: '🧠', talent: 'Patrick Dempsey, Michael Imperioli', description: 'Angelo Ledda lives two separate lives — fearsome NYC hitman and sleepy upstate family man.' },
+        { rank: 2, title: 'Beast Games', genre: 'Reality-Show', movement: 'up', change: 5, daysInChart: 49, peakPosition: 1, emoji: '🏆', talent: 'Jimmy Donaldson (MrBeast)', description: '1,000 people fight for $5,000,000, the largest cash prize in TV history.' },
+        { rank: 3, title: '56 Days', genre: 'Crime', movement: 'down', change: 2, daysInChart: 7, peakPosition: 1, emoji: '🔪', talent: 'Dove Cameron, Avan Jogia', description: 'After meeting in a supermarket, Oliver and Ciara fall for each other fast, and dangerously hard.' },
+        { rank: 4, title: 'Cross', genre: 'Crime', type: 'Murder', movement: 'same', daysInChart: 14, peakPosition: 1, emoji: '🕵️', talent: 'Aldis Hodge, Ryan Eggold', description: 'Alex Cross is brilliant, flawed, and full of contradictions when he hunts killers.' },
+        { rank: 5, title: 'Fallout', genre: 'Science Fiction', type: 'Postapocalypse', movement: 'down', change: 3, daysInChart: 70, peakPosition: 1, emoji: '☢️', talent: 'Ella Purnell, Walton Goggins', description: 'The story of haves and have-nots in a world in which there\'s almost nothing left to have.' },
+        { rank: 6, title: 'Steal', genre: 'Crime', type: 'Heist', movement: 'down', change: 3, daysInChart: 35, peakPosition: 1, emoji: '💰', talent: 'Sophie Turner, Archie Madekwe', description: 'A gang of violent thieves force employees to execute their demands at a pension fund company.' },
+        { rank: 7, title: 'Jesy Nelson: Life After Little Mix', genre: 'Documentary', movement: 'down', change: 2, daysInChart: 12, peakPosition: 5, emoji: '🎵', talent: 'Jesy Nelson', description: 'Now she\'s ready to tell her side of the story.' },
+        { rank: 8, title: 'Chasing a Killer: Gary Allen', genre: 'Crime', movement: 'down', change: 2, daysInChart: 2, peakPosition: 6, emoji: '🔍', description: 'When Gary Allen is acquitted of murder, detectives know it\'s only a matter of time.' },
+        { rank: 9, title: 'Clarkson\'s Farm', genre: 'Reality-Show', type: 'Society', movement: 'same', daysInChart: 205, peakPosition: 1, emoji: '🚜', talent: 'Jeremy Clarkson, Kaleb Cooper', description: 'Follow Jeremy Clarkson as he takes on the most manually labour intensive job there is.' },
+        { rank: 10, title: 'MrBeast: Extreme Survival!', genre: 'Reality', movement: 'new', daysInChart: 26, peakPosition: 1, emoji: '🏔️', description: 'MrBeast pushes contestants into the toughest survival experiments imaginable.' }
     ],
 
-    // ─── WikiViews (Past Week — Most Viewed Entertainment Pages) ───
-    wikiViews: [
-        { rank: 1, title: 'Peaky Blinders (film)', views: '2.4M', change: '+340%', category: 'Film' },
-        { rank: 2, title: 'Cillian Murphy', views: '1.8M', change: '+285%', category: 'Person' },
-        { rank: 3, title: 'Black Mirror (series 7)', views: '1.2M', change: '+520%', category: 'TV' },
-        { rank: 4, title: 'Adolescence (TV series)', views: '980K', change: '+125%', category: 'TV' },
-        { rank: 5, title: 'Captain America: Brave New World', views: '870K', change: '+95%', category: 'Film' },
-        { rank: 6, title: 'Reacher (TV series)', views: '650K', change: '+180%', category: 'TV' },
-        { rank: 7, title: 'The Day of the Jackal (TV series)', views: '540K', change: '+45%', category: 'TV' },
-        { rank: 8, title: 'Oppenheimer (film)', views: '480K', change: '+210%', category: 'Film' },
-        { rank: 9, title: 'Sweetpea (TV series)', views: '420K', change: '+65%', category: 'TV' },
-        { rank: 10, title: '28 Days Later', views: '390K', change: '+175%', category: 'Film' }
+    // ─── Amazon Prime Video Film UK (Past Week) ───
+    amazonPrimeFilm: [
+        { rank: 1, title: 'The Bluff', genre: 'Action', type: 'Revenge', movement: 'new', daysInChart: 1, peakPosition: 1, emoji: '🏴‍☠️', talent: 'Priyanka Chopra Jonas, Karl Urban', description: 'An ex-pirate must confront her bloody past and unleash her deadly talents to save her family.' },
+        { rank: 2, title: 'The Wrecking Crew', genre: 'Action', type: 'Buddies', movement: 'down', change: 1, daysInChart: 28, peakPosition: 1, emoji: '💪', talent: 'Dave Bautista, Jason Momoa', description: 'Estranged half-brothers reunite after their father\'s mysterious death.' },
+        { rank: 3, title: 'Love Me Love Me', genre: 'Romance', movement: 'down', change: 1, daysInChart: 12, peakPosition: 2, emoji: '❤️', talent: 'Mia Jenkins, Pepe Barroso', description: 'June moves to Italy for a fresh start and is drawn into a world of secrets at her elite school.' },
+        { rank: 4, title: 'Together', genre: 'Horror', movement: 'down', change: 1, daysInChart: 4, peakPosition: 3, emoji: '😱', talent: 'Dave Franco, Alison Brie', description: 'A supernatural encounter begins an extreme transformation of a couple\'s love and their flesh.' },
+        { rank: 5, title: 'Afterlight', genre: 'Science Fiction', movement: 'same', daysInChart: 2, peakPosition: 5, emoji: '🌌', talent: 'Anna Fraser, Jacob Fortune-Lloyd', description: 'Five interconnected sci-fi stories explore humanity\'s fight for connection across time and space.' },
+        { rank: 6, title: 'Ballerina', genre: 'Action', type: 'Revenge', movement: 'down', change: 2, daysInChart: 46, peakPosition: 1, emoji: '🩰', talent: 'Ana de Armas, Keanu Reeves, Ian McShane', distributor: 'Lionsgate', description: 'Eve Macarro begins her training in the assassin traditions of the Ruska Roma.' },
+        { rank: 7, title: 'Tu Meri Main Tera Main Tera Tu Meri', genre: 'Romance', movement: 'same', daysInChart: 4, peakPosition: 7, emoji: '💕', talent: 'Kartik Aaryan, Ananya Panday', description: 'A carefree wedding planner and a headstrong novelist collide during a wild summer in Croatia.' },
+        { rank: 8, title: 'Afterburn', genre: 'Science Fiction', type: 'Postapocalypse', movement: 'down', change: 2, daysInChart: 39, peakPosition: 1, emoji: '☀️', talent: 'Dave Bautista, Samuel L. Jackson', description: 'Treasure hunters extract objects like the Mona Lisa while facing rival hunters, mutants and pirates.' },
+        { rank: 9, title: 'She\'s the Man', genre: 'Romance', type: 'Rom Com', movement: 'same', daysInChart: 8, peakPosition: 9, emoji: '⚽', talent: 'Amanda Bynes, Channing Tatum', distributor: 'DreamWorks', description: 'Viola Johnson poses as her twin brother at a new boarding school.' },
+        { rank: 10, title: 'That Peter Crouch Film', genre: 'Documentary', type: 'Sport', movement: 'new', daysInChart: 4, peakPosition: 10, emoji: '⚽', talent: 'Peter Crouch, Abbey Clancy, Steven Gerrard', description: 'The true story behind football\'s most unlikely hero.' }
+    ],
+
+    // ─── WikiViews Film (Past Week — Most Viewed Film Pages) ───
+    wikiViewsFilm: [
+        { rank: 1, title: 'xXx: Return of Xander Cage', genre: 'Action', type: 'Spies', views: '58,333', category: 'Film', distributor: 'Paramount Pictures' },
+        { rank: 2, title: 'xXx', genre: 'Action', type: 'Spies', views: '53,571', category: 'Film', distributor: 'Stillking Films' },
+        { rank: 3, title: 'Sinners', genre: 'Horror', type: 'Vampires', views: '22,631', category: 'Film', distributor: 'Warner Bros. Pictures' },
+        { rank: 4, title: 'Avatar: Fire and Ash', genre: 'Science Fiction', type: 'Space opera', views: '18,107', category: 'Film', distributor: '20th Century' },
+        { rank: 5, title: 'The Bride!', genre: 'Horror', type: 'Classic Horrors', views: '15,977', category: 'Film', distributor: 'Warner Bros. Pictures' },
+        { rank: 6, title: 'Predator: Badlands', genre: 'Alien Invasion', type: 'Science Fiction', views: '13,473', category: 'Film', distributor: '20th Century' },
+        { rank: 7, title: 'Heat', genre: 'Crime', type: 'Heist', views: '13,313', category: 'Film', distributor: 'Warner Bros. Pictures' },
+        { rank: 8, title: 'Zootopia 2', genre: 'Animation', type: 'Animals', views: '12,484', category: 'Film', distributor: 'Walt Disney Pictures' },
+        { rank: 9, title: 'Scream VI', genre: 'Horror', type: 'Slasher', views: '12,289', category: 'Film', distributor: 'Paramount Pictures' },
+        { rank: 10, title: '28 Years Later', genre: 'Horror', type: 'Zombies', views: '11,835', category: 'Film', distributor: 'Sony Pictures' }
+    ],
+
+    // ─── WikiViews People (Past Week — Most Viewed People Pages) ───
+    wikiViewsPeople: [
+        { rank: 1, title: 'Ronnie Wood', views: '133,941', category: 'People' },
+        { rank: 2, title: 'Paul Bettany', views: '131,444', category: 'People' },
+        { rank: 3, title: 'Jim Carrey', views: '131,417', category: 'People' },
+        { rank: 4, title: 'Bruce Lee', views: '87,852', category: 'People' },
+        { rank: 5, title: 'Linda Fiorentino', views: '86,184', category: 'People' },
+        { rank: 6, title: 'Mark Ronson', views: '86,032', category: 'People' },
+        { rank: 7, title: 'Charlize Theron', views: '85,940', category: 'People' },
+        { rank: 8, title: 'Traci Lords', views: '82,258', category: 'People' },
+        { rank: 9, title: 'Dwight Yoakam', views: '79,407', category: 'People' },
+        { rank: 10, title: 'Peter Cushing', views: '78,534', category: 'People' }
+    ],
+
+    // ─── WikiViews TV (Past Week — Most Viewed TV Pages) ───
+    wikiViewsTV: [
+        { rank: 1, title: 'Bridgerton', views: '143,887', category: 'TV' },
+        { rank: 2, title: 'Paradise', views: '51,319', category: 'TV' },
+        { rank: 3, title: 'The Night Agent', views: '42,380', category: 'TV' },
+        { rank: 4, title: 'The Pitt', views: '39,540', category: 'TV' },
+        { rank: 5, title: 'Monarch: Legacy of Monsters', views: '35,833', category: 'TV' },
+        { rank: 6, title: 'Scrubs', views: '34,448', category: 'TV' },
+        { rank: 7, title: 'The Lincoln Lawyer', views: '20,161', category: 'TV' },
+        { rank: 8, title: 'Industry', views: '19,032', category: 'TV' },
+        { rank: 9, title: 'Tehran', views: '14,839', category: 'TV' },
+        { rank: 10, title: 'Shrinking', views: '14,099', category: 'TV' }
+    ],
+
+    // ─── Sky Titles Catalogue (Reference Dataset) ───
+    skyTitles: [
+        'Oppenheimer', '28 Days Later', 'Dunkirk', 'Retreat',
+        'The Day of the Jackal S1', 'The Day of the Jackal (1973)',
+        'Sweetpea', 'The Midwich Cuckoos', 'Tár', 'The Killer',
+        'Slow Horses', 'Goodfellas', 'The Irishman', 'Gangs of London',
+        'Killing Eve', 'The Zone of Interest', 'Anatomy of a Fall',
+        'Peaky Blinders S1-6', 'Mr Bigstuff', 'War'
     ],
 
     // ─── TikTok Trending Hashtags UK (Past Week) ───
     tiktokUK: [
-        { rank: 1, hashtag: '#PeakyBlindersMovie', views: '124M', category: 'Entertainment', trend: 'up' },
-        { rank: 2, hashtag: '#BookTok', views: '98M', category: 'Books & Culture', trend: 'same' },
-        { rank: 3, hashtag: '#BlackMirrorS7', views: '87M', category: 'Entertainment', trend: 'new' },
-        { rank: 4, hashtag: '#GalentinesDay', views: '76M', category: 'Lifestyle', trend: 'down' },
-        { rank: 5, hashtag: '#Reacher', views: '65M', category: 'Entertainment', trend: 'up' },
-        { rank: 6, hashtag: '#WhatToWatch', views: '54M', category: 'Entertainment', trend: 'same' },
-        { rank: 7, hashtag: '#CillianMurphy', views: '48M', category: 'Celebrity', trend: 'up' },
-        { rank: 8, hashtag: '#NetflixUK', views: '42M', category: 'Entertainment', trend: 'same' },
-        { rank: 9, hashtag: '#TrueDetective', views: '38M', category: 'Entertainment', trend: 'up' },
-        { rank: 10, hashtag: '#Oscars2026', views: '35M', category: 'Awards', trend: 'up' }
+        { rank: 1, hashtag: '# snow', views: '5K', category: '', trend: 'new' },
+        { rank: 2, hashtag: '# wutheringheights', views: '6K', category: 'News & Entertainment', trend: 'up', change: 9 },
+        { rank: 3, hashtag: '# babyboo', views: '5K', category: '', trend: 'up', change: 14 },
+        { rank: 4, hashtag: '# deftones', views: '4K', category: '', trend: 'up', change: 16 },
+        { rank: 5, hashtag: '# jacobelordi', views: '2K', category: 'News & Entertainment', trend: 'up', change: 21 },
+        { rank: 6, hashtag: '# margotrobbie', views: '1K', category: 'News & Entertainment', trend: 'up', change: 27 },
+        { rank: 7, hashtag: '# ukweather', views: '1K', category: 'News & Entertainment', trend: 'up', change: 22 },
+        { rank: 8, hashtag: '# rants', views: '8K', category: 'Games', trend: 'new' },
+        { rank: 9, hashtag: '# tutorials', views: '9K', category: '', trend: 'new' },
+        { rank: 10, hashtag: '# knockout', views: '2K', category: 'Sports & Outdoor', trend: 'up', change: 35 }
     ],
 
     // ─── TikTok Trending UK News & Entertainment ───
     tiktokNewsEnts: [
-        { rank: 1, hashtag: '#PeakyBlinders', views: '89M', topic: 'Peaky Blinders movie breaks Netflix records in first weekend', sentiment: 'positive' },
-        { rank: 2, hashtag: '#Oscars2026', views: '67M', topic: 'Oscar nominations announced — surprises and snubs', sentiment: 'neutral' },
-        { rank: 3, hashtag: '#BlackMirror', views: '52M', topic: 'Black Mirror S7 first reviews divide fans', sentiment: 'neutral' },
-        { rank: 4, hashtag: '#LoveIsBlindUK', views: '44M', topic: 'Love Is Blind UK couples — who stayed together?', sentiment: 'positive' },
-        { rank: 5, hashtag: '#DayOfTheJackal', views: '38M', topic: 'Day of the Jackal fans campaign for series 2', sentiment: 'positive' },
-        { rank: 6, hashtag: '#Sweetpea', views: '31M', topic: 'Sweetpea star speaks on possible series return', sentiment: 'positive' },
-        { rank: 7, hashtag: '#28DaysLater', views: '28M', topic: '28 Days Later sequel trailer drops — Cillian Murphy returns', sentiment: 'positive' },
-        { rank: 8, hashtag: '#BAFTAs', views: '24M', topic: 'BAFTA nominations reflect diverse British talent', sentiment: 'positive' },
-        { rank: 9, hashtag: '#SquidGame3', views: '21M', topic: 'Squid Game S3 confirmed for summer 2026', sentiment: 'positive' },
-        { rank: 10, hashtag: '#StreamingWars', views: '18M', topic: 'Which streaming platform has the best value in the UK?', sentiment: 'neutral' }
+        { rank: 1, hashtag: '# loveisland', views: '32K', topic: 'Love Island returns — massive UK cultural moment', sentiment: 'positive' },
+        { rank: 2, hashtag: '# harrystyles', views: '34K', topic: 'Harry Styles fan content continues to trend', sentiment: 'positive' },
+        { rank: 3, hashtag: '# avatar', views: '23K', topic: 'Avatar: Fire and Ash anticipation builds', sentiment: 'positive' },
+        { rank: 4, hashtag: '# epstein', views: '20K', topic: 'Jeffrey Epstein documentary drives conversation', sentiment: 'neutral' },
+        { rank: 5, hashtag: '# heatedrivalry', views: '14K', topic: 'Heated Rivalry content and reactions trending', sentiment: 'positive' },
+        { rank: 6, hashtag: '# loveislanduk', views: '16K', topic: 'Love Island UK specific content and recaps', sentiment: 'positive' },
+        { rank: 7, hashtag: '# ice', views: '11K', topic: 'Ice and winter content surging with snow', sentiment: 'neutral' },
+        { rank: 8, hashtag: '# oliviadean', views: '14K', topic: 'Olivia Dean performance and music moments', sentiment: 'positive' },
+        { rank: 9, hashtag: '# grammys', views: '11K', topic: 'Grammy Awards reactions and highlights', sentiment: 'positive' },
+        { rank: 10, hashtag: '# cinema', views: '10K', topic: 'General cinema-going content and reviews', sentiment: 'neutral' }
     ],
 
     // ─── Upcoming Movie Releases UK (Next Month) ───
     upcomingReleases: [
-        { date: '28 Feb', title: 'Snow White', genre: 'Fantasy/Musical', talent: 'Rachel Zegler, Gal Gadot', distributor: 'Disney', skyRelevance: 'low' },
-        { date: '7 Mar', title: 'Mickey 17', genre: 'Sci-Fi', talent: 'Robert Pattinson, Bong Joon-ho (dir)', distributor: 'Warner Bros', skyRelevance: 'medium' },
-        { date: '7 Mar', title: 'Novocaine', genre: 'Action/Comedy', talent: 'Jack Quaid, Amber Midthunder', distributor: 'Paramount', skyRelevance: 'low' },
-        { date: '14 Mar', title: 'Black Bag', genre: 'Thriller', talent: 'Cate Blanchett, Michael Fassbender', distributor: 'Focus Features', skyRelevance: 'high' },
-        { date: '21 Mar', title: 'A Minecraft Movie', genre: 'Adventure/Comedy', talent: 'Jason Momoa, Jack Black', distributor: 'Warner Bros', skyRelevance: 'low' },
-        { date: '21 Mar', title: 'Alto Knights', genre: 'Crime/Drama', talent: 'Robert De Niro (dual role)', distributor: 'Warner Bros', skyRelevance: 'high' },
-        { date: '28 Mar', title: 'Warfare', genre: 'War/Drama', talent: 'D-Day ensemble, Alex Garland (dir)', distributor: 'A24', skyRelevance: 'medium' },
-        { date: '4 Apr', title: 'Thunderbolts*', genre: 'Action/Superhero', talent: 'Florence Pugh, Sebastian Stan', distributor: 'Disney/Marvel', skyRelevance: 'medium' }
+        { date: 'Feb 27', title: 'Scream 7', genre: 'Horror/Mystery', talent: 'Neve Campbell, Courteney Cox, Isabel May', distributor: '', skyRelevance: 'medium' },
+        { date: 'Feb 27', title: 'Sirat', genre: 'Action/Adventure', talent: 'Sergi Lopez, Bruno Nunez Arjona', distributor: '', skyRelevance: 'medium' },
+        { date: 'Feb 27', title: 'The Testament of Ann Lee', genre: 'Biography/Drama', talent: 'Amanda Seyfried, Lewis Pullman, Thomasin McKenzie', distributor: '', skyRelevance: 'medium' },
+        { date: 'Mar 6', title: 'The Bride!', genre: 'Drama/Horror', talent: 'Jessie Buckley, Jake Gyllenhaal, Christian Bale, Annette Bening', distributor: '', skyRelevance: 'medium' },
+        { date: 'Mar 6', title: 'Hoppers', genre: 'Romance/Animation', talent: 'Piper Curda, Bobby Moynihan, Jon Hamm, Meryl Streep', distributor: '', skyRelevance: 'medium' },
+        { date: 'Mar 6', title: 'Mother\'s Pride', genre: 'Comedy', talent: 'Jonno Davies, Martin Clunes, Mark Addy, Gabriella Wilde', distributor: '', skyRelevance: 'medium' },
+        { date: 'Mar 13', title: 'How to Make a Killing', genre: 'Comedy/Drama', talent: 'Glen Powell, Margaret Qualley, Jessica Henwick', distributor: '', skyRelevance: 'medium' },
+        { date: 'Mar 13', title: 'Reminders of Him', genre: 'Thriller/Drama', talent: 'Maika Monroe, Jennifer Robertson, Bradley Whitford', distributor: '', skyRelevance: 'medium' },
+        { date: 'Mar 13', title: 'Undertone', genre: 'Horror/Sci-Fi', talent: 'Nina Kiri, Adam DiMarco', distributor: '', skyRelevance: 'medium' },
+        { date: 'Mar 19', title: 'Toxic', genre: 'Action/Crime', talent: 'Yash, Nayanthara, Kiara Advani', distributor: '', skyRelevance: 'medium' }
     ],
 
     // ─── Reddit Seasonal Calendar UK (Next Month) ───
@@ -156,8 +210,8 @@ const MOCK_DATA = {
     // ─── Top Performing Sky Posts (Past Week — Simulated YouScan Data) ───
     skyPosts: [
         { platform: 'Instagram', content: 'The Day of the Jackal — Every shot is a masterclass. Stream now on Sky.', engagement: '48.2K', likes: '42.1K', comments: '3.2K', shares: '2.9K', sentiment: 'positive', mediaType: 'Reel' },
-        { platform: 'TikTok', content: 'POV: You just found out Mr Bigstuff is coming back 👀', engagement: '38.7K', likes: '31.4K', comments: '4.8K', shares: '2.5K', sentiment: 'positive', mediaType: 'Video' },
-        { platform: 'X', content: 'Sweetpea. That ending. We need to talk. 🌸', engagement: '29.1K', likes: '18.6K', comments: '7.2K', shares: '3.3K', sentiment: 'positive', mediaType: 'Text' },
+        { platform: 'TikTok', content: 'POV: You just found out Mr Bigstuff is coming back', engagement: '38.7K', likes: '31.4K', comments: '4.8K', shares: '2.5K', sentiment: 'positive', mediaType: 'Video' },
+        { platform: 'X', content: 'Sweetpea. That ending. We need to talk.', engagement: '29.1K', likes: '18.6K', comments: '7.2K', shares: '3.3K', sentiment: 'positive', mediaType: 'Text' },
         { platform: 'Instagram', content: 'Name a more iconic duo. We\'ll wait. #WarSky', engagement: '25.4K', likes: '21.8K', comments: '2.1K', shares: '1.5K', sentiment: 'positive', mediaType: 'Carousel' },
         { platform: 'TikTok', content: 'When someone says they haven\'t watched The Day of the Jackal yet...', engagement: '22.8K', likes: '19.2K', comments: '2.4K', shares: '1.2K', sentiment: 'positive', mediaType: 'Video' }
     ],
@@ -173,7 +227,7 @@ const MOCK_DATA = {
                 title: 'Peaky Blinders: The Movie',
                 platform: 'Netflix',
                 platformColour: '#e50914',
-                detail: '#1 Film on Netflix UK — 4 days running'
+                detail: '#1 Film on Netflix UK — Cillian Murphy moment'
             },
             skyTitles: [
                 { title: 'Oppenheimer', where: 'Sky Cinema', type: 'Film' },
@@ -182,7 +236,7 @@ const MOCK_DATA = {
                 { title: 'Retreat', where: 'Sky Store', type: 'Film' }
             ],
             talent: 'Cillian Murphy',
-            strategicRecommendation: 'Leverage Cillian Murphy moment — cross-promote Sky Cinema catalogue (Oppenheimer, 28 Days Later, Dunkirk) while Peaky Blinders movie drives peak interest',
+            strategicRecommendation: 'Leverage Cillian Murphy moment — cross-promote Sky Cinema catalogue (Oppenheimer / 28 Days Later / Dunkirk) while Peaky Blinders movie drives peak interest',
             relevanceScore: 'high',
             timing: 'Immediate — trending now'
         },
@@ -195,14 +249,14 @@ const MOCK_DATA = {
                 title: '#DayOfTheJackal trending',
                 platform: 'TikTok',
                 platformColour: '#ff0050',
-                detail: '38M views — fans campaigning for Series 2'
+                detail: 'High engagement window — fans campaigning for Series 2'
             },
             skyTitles: [
                 { title: 'The Day of the Jackal S1', where: 'Sky Atlantic', type: 'Series' },
                 { title: 'The Day of the Jackal (1973)', where: 'Sky Cinema', type: 'Film' }
             ],
             talent: 'Eddie Redmayne',
-            strategicRecommendation: 'Capitalise on #DayOfTheJackal fan campaign momentum — spotlight Sky Atlantic as the home of the series, tease S2 speculation',
+            strategicRecommendation: 'Capitalise on #DayOfTheJackal fan campaign momentum — spotlight Sky Atlantic as the home of the series / tease S2 speculation',
             relevanceScore: 'high',
             timing: 'This week — high engagement window'
         },
@@ -215,7 +269,7 @@ const MOCK_DATA = {
                 title: '#28DaysLater sequel trailer',
                 platform: 'TikTok',
                 platformColour: '#ff0050',
-                detail: '28M views — Cillian Murphy confirmed returning'
+                detail: 'Trailer momentum — Cillian Murphy confirmed returning'
             },
             skyTitles: [
                 { title: '28 Days Later', where: 'Sky Store', type: 'Film' },
@@ -223,7 +277,7 @@ const MOCK_DATA = {
                 { title: 'Peaky Blinders S1-6', where: 'Sky Box Sets', type: 'Series' }
             ],
             talent: 'Cillian Murphy',
-            strategicRecommendation: 'Ride 28 Days Later sequel hype — position Sky Store as the place to rewatch the original, tie back to Murphy\'s Sky catalogue',
+            strategicRecommendation: 'Ride 28 Days Later sequel hype — position Sky Store as the place to rewatch the original / tie back to Murphy\'s Sky catalogue',
             relevanceScore: 'high',
             timing: 'This week — trailer momentum'
         },
@@ -236,7 +290,7 @@ const MOCK_DATA = {
                 title: 'Black Mirror S7',
                 platform: 'Netflix',
                 platformColour: '#e50914',
-                detail: '#3 Series on Netflix UK — divisive reviews driving conversation'
+                detail: 'Divisive reviews driving conversation'
             },
             skyTitles: [
                 { title: 'Sweetpea', where: 'Sky Atlantic', type: 'Series' },
@@ -264,7 +318,7 @@ const MOCK_DATA = {
                 { title: 'Slow Horses', where: 'Sky Atlantic', type: 'Series' }
             ],
             talent: 'Cate Blanchett, Michael Fassbender',
-            strategicRecommendation: 'Pre-release Black Bag buzz — spotlight Blanchett/Fassbender catalogue on Sky Cinema (Tár, The Killer, Slow Horses)',
+            strategicRecommendation: 'Pre-release Black Bag buzz — spotlight Blanchett/Fassbender catalogue on Sky Cinema (Tár / The Killer / Slow Horses)',
             relevanceScore: 'medium',
             timing: 'Week of 10 March — pre-release buzz'
         },
@@ -285,7 +339,7 @@ const MOCK_DATA = {
                 { title: 'Gangs of London', where: 'Sky Atlantic', type: 'Series' }
             ],
             talent: 'Robert De Niro',
-            strategicRecommendation: 'Pre-release Alto Knights anticipation — curate De Niro mob collection on Sky Cinema (Goodfellas, The Irishman)',
+            strategicRecommendation: 'Pre-release Alto Knights anticipation — curate De Niro mob collection on Sky Cinema (Goodfellas / The Irishman)',
             relevanceScore: 'medium',
             timing: 'Week of 17 March'
         },
@@ -298,7 +352,7 @@ const MOCK_DATA = {
                 title: '#Oscars2026 nominations',
                 platform: 'X',
                 platformColour: '#1a1a2e',
-                detail: '35M+ TikTok views — award season buzz peaks'
+                detail: 'Award season buzz peaks'
             },
             skyTitles: [
                 { title: 'Oscar-nominated films collection', where: 'Sky Cinema', type: 'Collection' },
@@ -306,7 +360,7 @@ const MOCK_DATA = {
                 { title: 'Anatomy of a Fall', where: 'Sky Cinema', type: 'Film' }
             ],
             talent: 'Various nominees',
-            strategicRecommendation: 'Oscars night content play — curate Sky Cinema collection of nominated films, drive tune-in around ceremony',
+            strategicRecommendation: 'Oscars night content play — curate Sky Cinema collection of nominated films / drive tune-in around ceremony',
             relevanceScore: 'low',
             timing: 'Oscars night 2 March'
         },
@@ -319,7 +373,7 @@ const MOCK_DATA = {
                 title: 'Sweetpea return hints',
                 platform: 'TikTok',
                 platformColour: '#ff0050',
-                detail: '31M views — star teases possible return'
+                detail: 'Star teases possible return — fans riding the buzz'
             },
             skyTitles: [
                 { title: 'Sweetpea S1', where: 'Sky Atlantic', type: 'Series' },
